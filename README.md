@@ -1,4 +1,3 @@
-# NPS-survey
 # 📊 Customer Feedback Dashboard
 
 A lightweight two-page web app for collecting **Net Promoter Score (NPS)** surveys and visualizing customer satisfaction in real time — built with TanStack Start, Supabase, and shadcn/ui.
@@ -150,9 +149,3 @@ NPS ranges from **−100** (all detractors) to **+100** (all promoters).
 - Real-time updates via a Supabase channel subscription
 - NPS-over-time trend chart (recharts / shadcn chart)
 - Pagination for high-volume deployments
-
----
-
-## License
-
-MIT
