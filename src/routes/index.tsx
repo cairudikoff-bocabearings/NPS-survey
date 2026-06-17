@@ -9,6 +9,12 @@ import { Label } from '@/components/ui/label'
 import { supabase } from '@/integrations/supabase/client'
 
 export const Route = createFileRoute('/')({
+  validateSearch: (search: Record<string, unknown>) => {
+    const raw = Number(search.score)
+    return {
+      score: Number.isInteger(raw) && raw >= 1 && raw <= 10 ? raw : undefined,
+    }
+  },
   head: () => ({
     meta: [
       { title: 'Share your feedback' },
@@ -27,7 +33,8 @@ export const Route = createFileRoute('/')({
 })
 
 function Index() {
-  const [score, setScore] = useState<number | null>(null)
+  const { score: initialScore } = Route.useSearch()
+  const [score, setScore] = useState<number | null>(initialScore ?? null)
   const [text, setText] = useState('')
   const [done, setDone] = useState(false)
 
